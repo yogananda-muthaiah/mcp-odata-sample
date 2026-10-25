@@ -1,0 +1,13 @@
+---
+applications:
+  - name: odata-mcp-server
+    memory: 256M
+    instances: 1
+    buildpacks:
+      - python_buildpack
+    command: python server.py
+    health-check-type: http
+    health-check-http-endpoint: /health
+    random-route: true
+    env:
+      ODATA_BASE_URL: https://services.odata.org/V4/OData/OData.svc
